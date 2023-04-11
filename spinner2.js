@@ -9,7 +9,7 @@ const spinner180Degs = function(num180DegRotations) {
   const spinDuration = 200;
   const spinChars = ['|', '/', '-', '\\'];
 
-  // keeping the variables inside the for loop to use only variables inside the for loop so that they are evaluated immediately (rather than after the initial main thread execution)
+  // keeping the variables inside the for loop to use only variables (namely i) inside the for loop so that they are evaluated immediately (rather than after the initial main thread execution)
   for (let i = 0; i < spinChars.length; i++) {
     setTimeout(() => {
       process.stdout.write(`\r${spinChars[i]}   `);
