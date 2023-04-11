@@ -9,7 +9,7 @@ const spinner180Degs = function(num180DegRotations) {
   const spinDuration = 200;
   const spinChars = ['|', '/', '-', '\\'];
   
-  // if done this way, then this makes i not evaluated immediately, but instead after the initial main thread execution
+  // if done this way, then this makes i in the setTimeout callback function not evaluated immediately, but instead after the initial main thread execution
   let i;
   for (i = 0; i < spinChars.length; i++) {
     setTimeout(() => {
