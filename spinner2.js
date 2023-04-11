@@ -8,9 +8,10 @@ const spinner180Degs = function(num180DegRotations) {
   // Recursive case
   const spinDuration = 200;
   const spinChars = ['|', '/', '-', '\\'];
-
-  // keeping the variables inside the for loop to use only variables (namely i) inside the for loop so that they are evaluated in the callback function immediately (rather than after the initial main thread execution)
-  for (let i = 0; i < spinChars.length; i++) {
+  
+  // if done this way, then this makes i not evaluated immediately, but instead after the initial main thread execution
+  let i;
+  for (i = 0; i < spinChars.length; i++) {
     setTimeout(() => {
       process.stdout.write(`\r${spinChars[i]}   `);
     }, 100 + i * spinDuration);
@@ -19,7 +20,7 @@ const spinner180Degs = function(num180DegRotations) {
 
   setTimeout(() => {
     spinner180Degs(num180DegRotations - 1);
-  }, (100 + spinChars.length * spinDuration) - 100);
+  }, (100 + i * spinDuration) - 100);
 };
 
 spinner180Degs(2);
