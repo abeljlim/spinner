@@ -16,7 +16,6 @@ const spinner180Degs = function(num180DegRotations) {
     }, 100 + i * spinDuration);
   }
 
-
   setTimeout(() => {
     spinner180Degs(num180DegRotations - 1);
   }, (100 + spinChars.length * spinDuration) - 100);
